@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="jumbotron">
+        <div class="list-group list-group-flush">
+            <h3 class="text-secondary">Student Details</h3>
+            <li class="list-group-item text-secondary">Student Id:
+            <span class="float-right text-info">
+                {{student_data.id}}
+            </span>
+            </li>
+
+            <li class="list-group-item text-secondary">Student Name:
+            <span class="text-info float-right">
+                {{student_data.name}}
+            </span>
+            </li>
+
+               <li class="list-group-item text-secondary">Student Name:
+            <span class="text-info float-right">
+                {{student_data.age}}
+            </span>
+            </li>
+
+            <li class="list-group-item text-secondary">School:
+            <span class="text-info float-right">
+                {{student_data.school}}
+            </span>
+            </li>
+
+        </div>
+        <div class="py-3">
+            <a href="{% url 'myapp:student_edit' student_data.id %}" class="btn btn-success float-left">Edit</a>
+            <a href="{% url 'myapp:student_delete' student_data.id %}" class="btn btn-danger float-right">Delete</a>
+        </div>
+    </div>
+{% endblock %}

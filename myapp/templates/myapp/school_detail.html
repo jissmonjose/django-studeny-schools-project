@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+    <h1>Welcome to the School Detail Page</h1>
+    <h2>School Details:</h2>
+    <p>Id_num: {{school_data.id}}</p>
+    <p>Name: {{school_data.name}}</p>
+    <p>Principal: {{school_data.principal}}</p>
+    <p>Location: {{school_data.location}}</p>
+    <h3>Students:</h3>
+
+    {% for student in school_data.students.all %}
+    <p>{{student.name}} who is {{student.age}} years old.</p>
+    {% endfor %}
+
+</div>
+<div class="container">
+    <a class="btn btn-primary" href="{% url 'myapp:school_update' pk=school_data.pk %}">Edit</a>
+<!--    to delete a school with a specific pk -->
+    <a class="btn btn-primary py-4" href="{% url 'myapp:school_delete' pk=school_data.pk %}">Delete</a>
+</div>
+
+
+
+{% endblock %}
